@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loading animation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              loading: "loading 1.5s linear infinite",
+            },
+            keyframes: {
+              loading: {
+                "80%": {
+                  transform: "scale(0)",
+                },
+              },
+            },
+            colors: {
+              "blue-violet": "#8a2be2",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .delay25 {
+          animation-delay: 0.25s;
+        }
+        .delay50 {
+          animation-delay: 0.5s;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-blue-violet h-screen flex items-center justify-center">
+    <div
+      class="flex gap-x-8 [&>div]:w-5 [&>div]:h-5 [&>div]:rounded-full [&>div]:bg-white [&>div]:animate-loading"
+    >
+      <div></div>
+      <div class="delay25"></div>
+      <div class="delay50"></div>
+    </div>
+  </body>
+</html>
